@@ -3,8 +3,15 @@ import { FormGroup, FormControl, InputGroup, Button, Glyphicon } from 'react-boo
 
 class Global extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            query: ''
+        }
+    }
+
     search() {
-        console.log("search");
+        console.log("search", this.state.query);
     }
 
     render() {
@@ -16,6 +23,12 @@ class Global extends Component {
                         <FormControl
                             type="text"
                             placeholder="Search for a Book"
+                            onChange={event => { this.setState({ query: event.target.value }) }}
+                            onKeyPress={event => {
+                                if (event.key === "Enter") {
+                                    this.search()
+                                }
+                            }}
                         />
                         <Button type="submit" onClick={() => this.search()}>Search</Button>
                     </InputGroup>
@@ -24,7 +37,5 @@ class Global extends Component {
         )
     }
 }
-
-
 
 export default Global;
