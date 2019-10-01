@@ -3,7 +3,16 @@ import React, { Component } from 'react';
 class Gallery extends Component {
   render() {
     return (
-      <div>Gallery Component</div>
+      <div>
+        {
+          this.props.items.map((item, index) => {
+            let { title } = item.volumeInfo;
+            return (
+              <div key={index}>{title}</div>
+            )
+          })
+        }
+      </div>
     )
   }
 }

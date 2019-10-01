@@ -43,7 +43,7 @@ class Global extends Component {
                         <Button type="submit" onClick={() => this.search()}>Search</Button>
                     </InputGroup>
                 </FormGroup>
-                <Gallery />
+                <Gallery items={this.state.items} />
             </div>
         )
     }
